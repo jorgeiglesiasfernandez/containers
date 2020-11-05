@@ -1,6 +1,6 @@
 # Example MySQL Database
 
-In this example, you will start a MySQL database inside a container, and then create and populate the database. Also included is a mysql client for nodejs to test functionality.
+In this example, you will start a MySQL database inside a container, create a table and load values.
 
 Content:
 
@@ -11,8 +11,6 @@ Content:
 - [Create an Image From a Container](#create-an-image-from-a-container)
 
 ## Overview
-
-This container has a mysql database with a sample table. The container has a persistent volume of data associated with it.
 
 <p align="center">
   <img src="doc/draw/img/app-items-mysql.png">
@@ -30,11 +28,13 @@ This container has a mysql database with a sample table. The container has a per
 
 ## Create container and example database
 
-1. Create a local directory, in tnis example:
+1. Create directory for the persistent storage:
+
+In tnis example:
 
 `$ mkdir -pv /Users/jorgeiglesias/Development/data/storage/app-items-mysql`
 
-***Note:*** If you know the permissions of your directory are already set appropriately (such as running against an existing database, as described above) or you have need of running mysqld with a specific UID/GID, it is possible to invoke this image with --user set to any value (other than root/0) in order to achieve the desired access/configuration
+***Note:*** Set permissions of your directory such as running against an existing database or you have need of running mysqld with a specific UID/GID, it is possible to invoke this image with --user set to any value (other than root/0) in order to achieve the desired access/configuration
 
 2. Create a MySQL container instance with persistent storage and port forwarding to `13306`:
 
