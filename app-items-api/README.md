@@ -57,3 +57,5 @@ $ docker inspect -f "{{ .NetworkSettings.IPAddress }}" app-items-mysql
 curl --request POST http://localhost:8003/v1/data
 {"message":[{"type":"Disk","size":"P1010"},{"type":"Keyboard","size":"P2020"},{"type":"Screen","size":"P2030"},{"type":"Mouse","size":"P2040"}]}
 ```
+
+###### Developed by [@_jorgeiglesias](http://jorgeiglesiasf.blogspot.com.es/).

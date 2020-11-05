@@ -62,3 +62,5 @@ $ docker inspect -f "{{ .NetworkSettings.IPAddress }}" app-items-api
 <p align="center">
   <img src="doc/draw/img/app-items-front-list-hwd.png">
 </p>
+
+###### Developed by [@_jorgeiglesias](http://jorgeiglesiasf.blogspot.com.es/).

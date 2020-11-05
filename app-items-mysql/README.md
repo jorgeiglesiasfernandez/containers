@@ -132,3 +132,5 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 app-items-mysql     latest              08e85dc86e8b        3 minutes ago       545MB
 mysql               latest              b5c10a3624ce        10 days ago         545MB
 ```
+
+###### Developed by [@_jorgeiglesias](http://jorgeiglesiasf.blogspot.com.es/).
