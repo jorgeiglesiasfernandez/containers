@@ -7,6 +7,7 @@ Content:
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Create container and example database](#create-container-and-example-database)
+- [Test MySQL nodejs client example](test-mysql-nodejs-client-example)
 - [Native authentication protocol](#native-authentication-protocol)
 - [Create an Image From a Container](#create-an-image-from-a-container)
 
@@ -22,9 +23,9 @@ Content:
 
 ## Requirements
 
-- [Docker][] installed.
-- [MySQL client][] installed. Needed to load data (`db.sql`).
-- [NodeJS][] installed. Needed to execute test (`test-db.js`).
+- [Docker][] installed with user accaount.
+- [MySQL client][] installed. Needed to load data (`hardware.sql`).
+- [NodeJS][] installed. Needed to execute test (`app-items-mysql`).
 
 ## Create container and example database
 
@@ -34,9 +35,7 @@ In tnis example:
 
 `$ mkdir -pv /Users/jorgeiglesias/Development/data/storage/app-items-mysql`
 
-***Note:*** Set permissions of your directory such as running against an existing database or you have need of running mysqld with a specific UID/GID, it is possible to invoke this image with --user set to any value (other than root/0) in order to achieve the desired access/configuration
-
-2. Create a MySQL container instance with persistent storage and port forwarding to `13306`:
+2. Create container instance with persistent storage created in previous step and with port forwarding set to `13306` using `mysql` docker image:
 
 `$ docker run --name app-items-mysql -v /Users/jorgeiglesias/Development/data/storage/app-items-mysql:/var/lib/mysql -p 13306:3306 -e MYSQL_USER=user1 -e MYSQL_PASSWORD=user1 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=user1 -d mysql --default-authentication-plugin=mysql_native_password`
 
@@ -52,7 +51,12 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 e9350aeef0b4        mysql               "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        33060/tcp, 0.0.0.0:13306->3306/tcp   app-items-mysql
 ```
 
-4. Loading the database with a mysql client from outside the container using the file `db.sql`:
+4. Loading the database using MySQL client:
+
+Download the sql file with example data `db.sql` file:
+`curl https://raw.githubusercontent.com/jorgeiglesiasfernandez/containers/master/app-items-mysql/sql/hardware.sql > db.sql`
+
+Loading the database:
 
 ```
 $ mysql -u user1 -p items -h 127.0.0.1 -P 13306 < db.sql
@@ -77,9 +81,17 @@ Enter password:
 +----+----------+-------+
 ```
 
-6. Test database connection using the nodejs `test-db.js`. Go to project directory:
+## Test MySQL nodejs client example
+
+1. Clone the git repository `nodejs-apps` using the `app-items-mysql` branch.
+
+`$ git clone -b app-items-mysql https://github.com/jorgeiglesiasfernandez/nodejs-apps.git`
+
+
+2. Go into the project directory `app-items-mysql` and execute:
 
 ```
+$ cd nodejs-apps/app-items-mysql
 $ npm install
 $ node test-db.js
 
