@@ -7,7 +7,7 @@ Content:
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Create container and example database](#create-container-and-example-database)
-- [Test MySQL nodejs client example](test-mysql-nodejs-client-example)
+- [Test MySQL client example](#test-mysql-client-example)
 - [Native authentication protocol](#native-authentication-protocol)
 - [Create an Image From a Container](#create-an-image-from-a-container)
 
@@ -81,7 +81,7 @@ Enter password:
 +----+----------+-------+
 ```
 
-## Test MySQL nodejs client example
+## Test MySQL client example
 
 1. Clone the git repository `nodejs-apps` using the `app-items-mysql` branch.
 
