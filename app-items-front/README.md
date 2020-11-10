@@ -6,7 +6,8 @@ Content:
 
 - [Overview](#overview)
 - [Requirements](#requirements)
-- [Create container example](#create-container-example)
+- [Create container](#create-container)
+- [Run example](#run-example)
 
 ## Overview
 
@@ -17,19 +18,28 @@ Microservice that implements the front end of an application that accesses a dat
 </p>
 
 [Docker]: https://docs.docker.com/get-docker
-[NodeJS]: https://dev.mysql.com/downloads/
+[GitHub]: https://github.com
 
 ## Requirements
 - [Docker][] installed.
 - [API container "app-items-api" example installed and running.](https://github.ibm.com/CloudExpertLab/Containers/tree/master/app-items-api)
 - [MySQL container database "app-items-mysql" example installed and running.](https://github.ibm.com/CloudExpertLab/Containers/tree/master/app-items-mysql)
-- [NodeJS][] installed.
+- Install [GitHub][] client on your machine.
 
-## Create container example
+## Create container
 
-1. Building the image
+1. Clone the git repository `nodejs-apps` using the `app-items-fromt` branch.
 
-Go to the project directory that has the `Dockerfile` and run the following command to build the Docker image. The `-t` flag lets you tag your image so it's easier to find later using the docker images command:
+`$ git clone -b app-items-front https://github.com/jorgeiglesiasfernandez/nodejs-apps.git`
+
+2. Go to clone directory and download the Dockerfile:
+
+```
+$ cd nodejs-apps/app-items-front
+$ curl https://raw.githubusercontent.com/jorgeiglesiasfernandez/containers/master/app-items-front/Dockerfile > Dockerfile`
+```
+
+3. Build the image:
 
 `$ docker build -t app-items-front .`
 
