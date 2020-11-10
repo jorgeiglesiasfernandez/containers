@@ -18,14 +18,12 @@ This container has an Express-based server, with a service exposed `/v1/data` to
 </p>
 
 [Docker]: https://docs.docker.com/get-docker
-[NodeJS]: https://dev.mysql.com/downloads/
 [GitHub]: https://github.com
 
 ## Requirements
 
 - [Docker][] installed.
 - [MySQL container database "app-items-mysql" example installed and running.](https://github.ibm.com/CloudExpertLab/Containers/tree/master/app-items-mysql)
-- [NodeJS][] installed.
 - Install [GitHub][] client on your machine.
 
 ## Create container
