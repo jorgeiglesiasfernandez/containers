@@ -1,12 +1,12 @@
-# Example MySQL Database
+# Example C++ development with Docker containers
 
-In this example, you will start a MySQL database inside a container, create a table and load values.
+In this example, you will start a c++ example that runs inside a container.
 
 Content:
 
 - [Overview](#overview)
 - [Requirements](#requirements)
-- [Create container and example database](#create-container-and-example-database)
+- [Create container](#create-container)
 - [Test MySQL client example](#test-mysql-client-example)
 - [Native authentication protocol](#native-authentication-protocol)
 - [Create an Image From a Container](#create-an-image-from-a-container)
@@ -14,22 +14,29 @@ Content:
 ## Overview
 
 <p align="center">
-  <img src="doc/draw/img/app-items-mysql.png">
+  <img src="doc/draw/img/app-myapp-cpp.png">
 </p>
 
 [Docker]: https://docs.docker.com/get-docker
-[MySQL client]: https://dev.mysql.com/downloads/
-[NodeJS]: https://dev.mysql.com/downloads/
+[GitHub]: https://github.com
 
 ## Requirements
 
 - Install [Docker][] on your machine.
-- [MySQL client][] installed. Needed to load data (`hardware.sql`).
-- [NodeJS][] installed. Needed to execute test (`app-items-mysql`).
+- Install [GitHub][] client on your machine.
 
-## Create container and example database
+## Create container
 
-1. Create directory for the persistent storage:
+1. Clone the git repository `cpp-apps` using the `app-myapp-cpp` branch.
+
+`$ git clone -b app-myapp-cpp https://github.com/jorgeiglesiasfernandez/cpp-apps.git`
+
+2. Go to clone directory and download the Dockerfile:
+
+```
+$ cd cpp-apps/app-myapp-cpp
+$ curl https://raw.githubusercontent.com/jorgeiglesiasfernandez/containers/master/app-items-mysql/sql/hardware.sql > Dockerfile`
+```
 
 In tnis example:
 
